@@ -1,16 +1,12 @@
-def max_2_sum(array,num)
+def max_2_sum?(array,num)
+    my_bool = false
    for i in (0..array.length-1)
         my_num = array[i]
         for j in (i+1..array.length-1) do
-            my_val = my_num + array[j]
         if my_num + array[j] == num then
-            return true
+            my_bool = true
         end
         end
    end
+   return my_bool
 end
-
-my_data = [-2,10,5,2]
-my_num = 11
-
-puts max_2_sum(my_data, my_num)
