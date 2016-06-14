@@ -24,8 +24,8 @@ def max_2_sum arr
   # For an array with just one element, it should return that element.
   if arr.empty?
     0
-  elsif arr.length == 1
-    arr[0]
+elsif arr.length == 1
+  arr[0]
   else
     my_sorted_arr = arr.sort
     my_max_2_sum = my_sorted_arr[my_sorted_arr.length-1]+ my_sorted_arr[my_sorted_arr.length-2]
@@ -34,7 +34,6 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
   # Define a method sum_to_n?(array, n) that takes an array of integers and an additional integer, n, as arguments 
   # and returns true if any two elements in the array of integers sum to n. sum_to_n?([], n) 
   # should return false for any value of n, by definition
@@ -52,12 +51,18 @@ end
 
 # Part 2
 
-def hello(name)
+def hello name
   # YOUR CODE HERE
+  # Define a method `hello(name)` that takes a string representing a name and returns the string "Hello, " 
+  # concatenated with the name.
+  "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  # Define a method `starts_with_consonant?(s)` that takes a string and returns true if it starts with a consonant and false 
+  # otherwise. (For our purposes, a consonant is any letter other than A, E, I, O, U.) 
+  # NOTE: be sure it works for both upper and lower case and for nonletters!
+  s =~ /^[a-z&&[^aeiou]]/i
 end
 
 def binary_multiple_of_4? s
