@@ -62,11 +62,17 @@ def starts_with_consonant? s
   # Define a method `starts_with_consonant?(s)` that takes a string and returns true if it starts with a consonant and false 
   # otherwise. (For our purposes, a consonant is any letter other than A, E, I, O, U.) 
   # NOTE: be sure it works for both upper and lower case and for nonletters!
+  # a-z means must be a letter, aeiou means must start with on of aeiou, i means case insensitive
   s =~ /^[a-z&&[^aeiou]]/i
+  #First try s =~ /^[^aeiou]/i but fails when starting with non letters
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  # Define a method `binary_multiple_of_4?(s)` that takes a string and returns true if the string represents a binary number 
+  # that is a multiple of 4. NOTE: be sure it returns false if the string is not a valid binary number!
+  #Check if binary number 
+  # return false unless s == /^[01]+$/
+  return ((s)%4).to_i == 0
 end
 
 # Part 3
