@@ -62,21 +62,21 @@ def starts_with_consonant? s
   # Define a method `starts_with_consonant?(s)` that takes a string and returns true if it starts with a consonant and false 
   # otherwise. (For our purposes, a consonant is any letter other than A, E, I, O, U.) 
   # NOTE: be sure it works for both upper and lower case and for nonletters!
-  # a-z means must be a letter, aeiou means must start with on of aeiou, i means case insensitive
+  
+  # a-z means must be a letter and aeiou means must start with on of aeiou, i means case insensitive
   s =~ /^[a-z&&[^aeiou]]/i
-  #First try s =~ /^[^aeiou]/i but fails when starting with non letters
+  
 end
 
 def binary_multiple_of_4? s
   # Define a method `binary_multiple_of_4?(s)` that takes a string and returns true if the string represents a binary number 
   # that is a multiple of 4. NOTE: be sure it returns false if the string is not a valid binary number!
-  # Check if binary number
-  #return false unless s == /^[0-1]*/
+  # Check if binary number Alternatively \A[01]+\Z
+  return false unless s =~ /^[01]+$/
   "#{s}".to_i(2)%4 == 0
 end
 
 # Part 3/
-
 class BookInStock
 # Define a class `BookInStock` which represents a book with an ISBN
 #number, `isbn`, and price of the book as a floating-point number,
@@ -89,6 +89,8 @@ class BookInStock
 #the ISBN number is the empty string or if the price is less than or
 #equal to zero.  Include the proper getters and setters for these
 #attributes.
+
+#constructor
 def initialize(isbn,price)
   raise ArgumentError if isbn.empty?
   raise ArgumentError if price <= 0
@@ -123,7 +125,8 @@ end
 #of 20 should format as "$20.00" and a price of 33.8 should format as
 #"$33.80".
 def price_as_string
-  "${price.to_str}"
+  "$#{sprintf('%.2f', price)}"
+  format("$%.2f",price)
 end
 end
 
